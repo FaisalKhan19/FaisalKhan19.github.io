@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Your Website's Title</title>
+    <title>Data Bird Services</title>
     <link>https://www.databirdservices.com</link>
     <description>A description of your website.</description>
     <pubDate>Fri, 22 Sep 2023 10:00:00 -0400</pubDate>
@@ -11,7 +11,7 @@
     <!-- First Blog Post -->
     <item>
       <title>What is Market Basket Analysis?</title>
-      <link>https://www.databirdservices.com/blog/market-basket-analysis</link>
+      <link>https://www.databirdservices.com/blogs/market-basket-analysis</link>
       <description>Market Basket Analysis is a data mining technique used to discover...</description>
       <pubDate>Wed, 20 Sep 2023 09:00:00 -0400</pubDate>
     </item>
@@ -19,7 +19,7 @@
     <!-- Second Blog Post -->
     <item>
       <title>Collecting and Back-testing data for your theories</title>
-      <link>https://www.databirdservices.com/blog/data-collection-and-backtesting</link>
+      <link>https://www.databirdservices.com/blogs/data-collection-and-backtesting</link>
       <description>Learn how to collect and back-test data to validate your hypotheses...</description>
       <pubDate>Thu, 21 Sep 2023 14:15:00 -0400</pubDate>
     </item>
