@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PMLKWX2Q61"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PMLKWX2Q61');
+    </script>
+    <meta charset="utf-8">
+    <title>Data Bird | Blogs</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="img/NEW_DataBird.png" rel="icon">
+    <link href="img/NEW_DataBird.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Libraries CSS Files -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    Theme Name: NewBiz
+    Theme URL: https://bootstrapmade.com/newbiz-bootstrap-business-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+    <!--==========================
+  Header
+  ============================-->
+    <header id="header" class="fixed-top">
+        <div class="container">
+
+            <div class="logo float-left">
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
+                <a href="#intro" class="scrollto"><img src="img/NEW_DataBird.png" alt="" class="img-fluid"></a>
+            </div>
+
+            <nav class="main-nav float-right d-none d-lg-block">
+                <ul>
+                    <li class="active"><a href="#intro">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <!-- <li class="drop-down"><a href="">Drop Down</a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="drop-down"><a href="#">Drop Down 2</a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">Drop Down 5</a></li>
+            </ul>
+          </li> -->
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav><!-- .main-nav -->
+
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <div class="container">
+            <header class="section-header" style="margin-top: 100px;">
+                <h2>Blogs</h2>
+            </header>
+            <div class="row about-container">
+                <div class="col-lg-6 content order-lg-1 order-2" style="    margin-top: 54px;margin-left: 100px;">
+                    <div id="blog-posts"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Function to fetch and parse the XML feed
+        function loadXMLDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    parseXML(this);
+                }
+            };
+            xhttp.open("GET", "feed.xml", true); // Replace with the path to your XML file
+            xhttp.send();
+        }
+
+        // Function to parse the XML content and generate blog posts
+        function parseXML(xml) {
+            var xmlDoc = xml.responseXML;
+            var items = xmlDoc.getElementsByTagName("item");
+            var blogPosts = document.getElementById("blog-posts");
+
+            for (var i = 0; i < items.length; i++) {
+                var title = items[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+                var link = items[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
+                var description = items[i].getElementsByTagName("description")[0].childNodes[0].nodeValue;
+                var pubDate = items[i].getElementsByTagName("pubDate")[0].childNodes[0].nodeValue;
+
+                var blogPostDiv = document.createElement("div");
+                blogPostDiv.className = "blog-post";
+
+                var blogPostTitle = document.createElement("h2");
+                var blogPostTitleLink = document.createElement("a");
+                blogPostTitleLink.href = link;
+                blogPostTitleLink.innerHTML = title;
+                blogPostTitle.appendChild(blogPostTitleLink);
+
+                var blogPostDescription = document.createElement("p");
+                blogPostDescription.innerHTML = description;
+
+                var blogPostPubDate = document.createElement("p");
+                blogPostPubDate.innerHTML = "Published on: " + pubDate;
+
+                blogPostDiv.appendChild(blogPostTitle);
+                blogPostDiv.appendChild(blogPostDescription);
+                blogPostDiv.appendChild(blogPostPubDate);
+
+                blogPosts.appendChild(blogPostDiv);
+            }
+        }
+
+        // Load the XML feed and parse it when the page loads
+        window.onload = loadXMLDoc;
+    </script>
+</body>
+
+</html>
